@@ -1,0 +1,20 @@
+<h1><%= @list.name %></h1>
+
+<% @list.movies.each do |movie| %>
+  <p>
+    <strong><%= movie.title %></strong> – <%= movie.rating %> – <%= movie.overview %>
+  </p>
+  <img src="<%= movie.poster_url %>" alt="movie poster">
+<% end %>
+
+<hr>
+
+<h2>Add a new bookmark</h2>
+
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.input :movie_id, collection: Movie.all, label_method: :title, value_method: :id, prompt: "Choose a movie" %>
+  <%= f.input :comment %>
+  <%= f.submit "Add bookmark", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "🧾 Add a list", new_list_path, class: "btn btn-primary" %>

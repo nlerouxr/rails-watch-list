@@ -1,0 +1,9 @@
+<% @movies.each do |movie| %>
+  <div>
+    <h3><%= movie.title %> (<%= movie.rating %>/10)</h3>
+    <p><%= movie.overview %></p>
+    <img src="<%= movie.poster_url %>" alt="<%= movie.title %> poster" width="150">
+
+    <%= link_to "Delete", movie_path(movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+<% end %>

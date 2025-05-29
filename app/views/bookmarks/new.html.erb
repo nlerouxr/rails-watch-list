@@ -1,0 +1,19 @@
+<h1>New Bookmark for "<%= @list.name %>"</h1>
+
+<%= form_with(model: [@list, @bookmark], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :movie_id, "Movie" %><br>
+    <%= form.collection_select :movie_id, Movie.all, :id, :title, prompt: "Select a movie" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add Bookmark", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to List', list_path(@list), class: "btn btn-secondary" %>
