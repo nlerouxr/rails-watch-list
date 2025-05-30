@@ -1,2 +1,37 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.card.hover-shadow {
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.card.hover-shadow:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.list-image {
+  width: 100%;
+  height: 100%;
+  max-height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card.hover-shadow:hover .list-image {
+  transform: scale(1.05);
+}
+
+@media (max-width: 767.98px) {
+  .list-image {
+    border-radius: 12px 12px 0 0 !important;
+    max-height: 220px;
+  }
+  .card.hover-shadow:hover .list-image {
+    transform: none; /* ou tu peux garder l'effet si tu veux */
+  }
+}
